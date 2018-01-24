@@ -7,19 +7,36 @@
 //
 
 import UIKit
+import Alamofire
+import CoreLocation
 
 class ViewController: UIViewController {
 
+    var locationManager: CLLocationManager = CLLocationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+//        RequestService.fetchISSInfo { info in
+//            print(info)
+//        }
+        
+//        RequestService.fetchISSLocation { loc in
+//            print(loc)
+//        }
+        
+//        RequestService.fetchISSPassTime(atLatitutude: "6.0930", atLongitude: "115.3679") {
+//            print("abc")
+//        }
+        
+//        let mapController = MapController()
+//        let navVC = UINavigationController(rootViewController: mapController)
+//        self.present(mapController, animated: false, completion: nil)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+}
 
-
+extension ViewController: CLLocationManagerDelegate {
+    
 }
 
