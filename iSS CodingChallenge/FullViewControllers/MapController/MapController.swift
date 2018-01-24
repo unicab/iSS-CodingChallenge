@@ -26,6 +26,7 @@ class MapController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // navigate to user location
     @IBAction func navigationButtonTapped(_ sender: Any) {
         self.locationDidUpdate = { [weak self] lat, lon in
             let coor = CLLocationCoordinate2D(latitude: lat, longitude: lon)
@@ -36,6 +37,7 @@ class MapController: UIViewController {
         locationManager.startUpdatingLocation()
     }
     
+    // request for the ISS location show it on the map
     @IBAction func satelliteButtonTapped(_ sender: Any) {
         if let removingAnno = annotation { self.mapView.removeAnnotation(removingAnno) }
         
@@ -49,6 +51,7 @@ class MapController: UIViewController {
         }
     }
     
+    // request for passtime information with current location
     @IBAction func getPassTimeButtonTapped(_ sender: Any) {
         let passtimeVC = PassTimeController()
         
@@ -63,6 +66,7 @@ class MapController: UIViewController {
         self.navigationController?.pushViewController(passtimeVC, animated: true)
     }
     
+    // request for astronauts infomation and show it on a tableView
     @IBAction func showAstronautsButtonTapped(_ sender: Any) {
         let astronautVC = AstronautsController()
         astronautVC.didLoadBlock = { RequestService.fetchISSInfo { info in astronautVC.setModel(info) } }

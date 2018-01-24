@@ -34,6 +34,7 @@ class AstronautsController: UIViewController {
         self.title = "ISS Astronaunts"
     }
     
+    // present model in UI
     func setModel(_ model: ISSInfoModel?) {
         guard let model = model else { return }
         self.people = model.people

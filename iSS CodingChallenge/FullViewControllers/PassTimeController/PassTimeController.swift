@@ -34,6 +34,7 @@ class PassTimeController: UIViewController {
         self.title = "ISS Passtime"
     }
     
+    // present model in UI
     func setModel(_ model: ISSPassTimeModel?) {
         guard let model = model else { return }
         self.timeItems = model.timeItems
